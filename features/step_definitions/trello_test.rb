@@ -19,6 +19,10 @@ And("I create a card in first list of that board") do
 	@browser.create_card
 end
 
-Then("I verify that the card is successfully created") do
-	(@browser.card.text == "New Orl").should be true
+And("I verify that the card is successfully created") do
+	(@browser.card.text == "New Card").should be true
+end
+
+Then("I delete the board") do
+	@browser.delete
 end

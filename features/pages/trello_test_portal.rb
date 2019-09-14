@@ -50,4 +50,13 @@ class Trello < BrowserContainer
     @driver.div(class: 'list-card-details')
   end
 
+  def delete
+    @driver.a(class: 'board-menu-navigation-item-link js-open-more').click
+    @driver.a(class: 'board-menu-navigation-item-link js-close-board').click
+    @driver.input(class: 'js-confirm full negate').click
+    @driver.a(class: 'quiet js-delete').click
+    @driver.input(class: 'js-confirm full negate').click
+    sleep 2
+  end
+
 end
