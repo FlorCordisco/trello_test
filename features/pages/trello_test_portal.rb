@@ -25,7 +25,7 @@ class Trello < BrowserContainer
   end
 
   def board
-    @driver.div(class: 'board-tile mod-add').click
+    @driver.div(class: 'board-tile').click
     sleep 2
     @driver.input(class: 'subtle-input').send_keys "Tablero"
     sleep 2
@@ -36,13 +36,13 @@ class Trello < BrowserContainer
   def create_card
     @driver.input(name: 'name').send_keys "New List"
     sleep 2
-    @driver.input(class: 'primary mod-list-add-button js-save-edit').click
+    @driver.input(class: 'primary').click
     sleep 2
     @driver.span(class: 'js-add-a-card').click
     sleep 1
-    @driver.textarea(class: 'list-card-composer-textarea js-card-title').send_keys "New Card"
+    @driver.textarea(class: 'list-card-composer-textarea').send_keys "New Card"
     sleep 2
-    @driver.input(class: 'primary confirm mod-compact js-add-card').click
+    @driver.input(class: 'mod-compact').click
     sleep 2
   end
 
@@ -51,11 +51,11 @@ class Trello < BrowserContainer
   end
 
   def delete
-    @driver.a(class: 'board-menu-navigation-item-link js-open-more').click
-    @driver.a(class: 'board-menu-navigation-item-link js-close-board').click
-    @driver.input(class: 'js-confirm full negate').click
-    @driver.a(class: 'quiet js-delete').click
-    @driver.input(class: 'js-confirm full negate').click
+    @driver.a(class: 'js-open-more').click
+    @driver.a(class: 'js-close-board').click
+    @driver.input(class: 'full').click
+    @driver.a(class: 'js-delete').click
+    @driver.input(class: 'js-confirm').click
     sleep 2
   end
 
