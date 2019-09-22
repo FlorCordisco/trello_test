@@ -12,35 +12,38 @@ class Trello < BrowserContainer
     @driver.goto('https://trello.com/')
   end
 
-  def login
+  def login(user,password)
     @driver.a(class: 'text-white').click
     sleep 2
-    @driver.input(name: 'user').send_keys "usertest575"
+    @driver.input(name: 'user').send_keys user
     sleep 2
     @driver.input(id: 'password').click
-    @driver.input(id: 'password').send_keys "treboles"
+    @driver.input(id: 'password').send_keys password
     sleep 2
     @driver.input(id: 'login').click
     sleep 2
   end
 
-  def board
+  def board(board)
     @driver.div(class: 'board-tile').click
     sleep 2
-    @driver.input(class: 'subtle-input').send_keys "Tablero"
+    @driver.input(class: 'subtle-input').send_keys board
     sleep 2
     @driver.span(text: 'Create Board').click
     sleep 4
   end
 
-  def create_card
-    @driver.input(name: 'name').send_keys "New List"
+  def first_list(list)
+    @driver.input(name: 'name').send_keys list
     sleep 2
     @driver.input(class: 'primary').click
     sleep 2
+  end
+
+  def create_card(card)
     @driver.span(class: 'js-add-a-card').click
     sleep 1
-    @driver.textarea(class: 'list-card-composer-textarea').send_keys "New Card"
+    @driver.textarea(class: 'list-card-composer-textarea').send_keys card
     sleep 2
     @driver.input(class: 'mod-compact').click
     sleep 2
