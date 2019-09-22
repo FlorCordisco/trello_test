@@ -6,17 +6,21 @@ Given("I go to trello.com") do
 	@browser.open_page
 	sleep 2
 end
-
-And("I login with valid credentials") do
-	@browser.login
+#/^I set "([^"]*)" as user and "([^"]*)" as password$/
+And(/^I login with "([^"]*)" and "([^"]*)"$/) do |user,password|
+	@browser.login(user,password)
 end
 
-And("I open a trello Board") do
-	@browser.board
+And(/^I create a trello board named "([^"]*)"$/) do |board|
+	@browser.board(board)
 end
 
-And("I create a card in first list of that board") do
-	@browser.create_card
+And(/^I create a list "([^"]*)"$/) do |list|
+	@browser.first_list(list)
+end
+
+And(/^I create a card "([^"]*)" in the first list$/) do |card|
+	@browser.create_card(card)
 end
 
 And("I verify that the card is successfully created") do
