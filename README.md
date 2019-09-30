@@ -4,12 +4,16 @@ An automation of the user interface was created to test the creation of new task
 
 Prerequisites
 --------------
-Necessary applications: Ruby
+Ruby
 
-To download ruby [www.ruby-lang.org](https://www.ruby-lang.org/es/downloads/)
+To download ruby: [www.ruby-lang.org](https://www.ruby-lang.org/es/downloads/)
 
-ruby gems used: rspec, uri, net/http, json.
+To install gems:
+
+```gem install cucumber watir rspec```
 
 Running the tests
 ------------------
-Run the test from the command line
+Run the test from the command line in root folder with
+
+```cucumber features/trello_test.feature```
