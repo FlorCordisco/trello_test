@@ -5,6 +5,9 @@ An automation of the user interface was created to test the creation of new task
 Prerequisites
 --------------
 Necessary applications: Ruby
+
+To download ruby [www.ruby-lang.org](https://www.ruby-lang.org/es/downloads/)
+
 ruby gems used: rspec, uri, net/http, json.
 
 Running the tests
